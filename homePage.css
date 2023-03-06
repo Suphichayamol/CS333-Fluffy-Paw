@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+
+
+.icont{
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.icont i{
+    color: rgb(252, 166, 68);
+}
+
+.paw{
+    color: rgb(252, 166, 68);
+}
+
+.fa-magnifying-glass{
+    font-size: 22px;
+    color: rgb(252, 166, 68);
+}
+
+.sIcon i{
+    vertical-align: -0.3em;
+}
+
+.fa-user{
+    color: rgb(58, 58, 58);
+    font-size: 22px;
+    margin-right: 20px;
+}
+
+.fa-cart-shopping{
+    color: rgb(58, 58, 58);
+    font-size: 22px;
+    margin-right: 50px;
+}
+
+.relativecart{
+    position: relative;
+}
+
+.absolutenum{
+    color: white;
+    right: -9px;
+    text-align: center;
+    background-color: rgb(252, 166, 68);
+    padding: 5px;
+    height: 19px;
+    width: 19px;
+    border-radius: 100%;
+    font-size: 10px;
+    top: -10px;
+    position: absolute;
+}
+
+.bannerimg{
+    width: 100%;
+    height: 600px;
+    
+}
+
+.absolutetext{
+    margin-top: -480px;
+    text-align: center;
+}
+
+.welcome{
+    font-family: 'Shantell Sans', cursive; 
+    font-size: 60px;
+    color: rgb(44, 44, 44);
+}
+
+.welcomedis{
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.btn-warning{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 50px;
+}
+
+.flexservice{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    margin-top: 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.flexservice i{
+    font-size: 36px;
+}
+
+.servicedis{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+.gridbox{
+    padding-top: 16px;
+    background-color: rgb(226, 226, 226);
+    width: 370px;
+    height: 140px;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.gridbox1{
+    padding-top: 16px;
+    background-color: rgb(226, 226, 226);
+    width: 370px;
+    height: 140px;
+    margin-left: 20px;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.flexmenu{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 26px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.menu{
+    color: rgb(252, 166, 68);
+    
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.menu1{
+    margin-left: 100px;
+    color: #000;
+}
+
+.menu1:hover{
+    color: #a7a7a7;
+}
+
+.flexcard{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.card img{
+    height: 240px;
+}
+
+.cardmargin{
+    margin-left: 60px;
+}
+
+.btn-danger{
+    border-color: rgb(252, 166, 68);
+    background-color: rgb(252, 166, 68);
+}
+
+.card a:hover{
+    background-color: rgb(163, 163, 163);
+    border-color: rgb(163, 163, 163);
+}
+
+.price{
+    font-weight: bold;
+    font-size: 26px;
+}
