@@ -149,9 +149,14 @@ a:link{
 }
 
 .flexcard{
+    
     margin-top: 40px;
     display: flex;
     justify-content: center;
+}
+
+.card{
+    margin-left: 50px;
 }
 
 .card img{
@@ -175,4 +180,19 @@ a:link{
 .price{
     font-weight: bold;
     font-size: 26px;
+}
+
+.Mycart{
+    text-align: center;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 3em;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: rgb(255, 187, 0);
+    
+}
+
+.Mycart h1{
+    color: rgba(255, 255, 255, 0.853);
 }

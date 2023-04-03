@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="css/login.css">
+
+</head>
+<body>   
+    <main id="container">
+        <div class="login_form">
+            <!-- LOGO -->
+            <div id="fluffy_paw">
+                <a href="#">
+                    <img src="image/fluffypaw.png" alt="">
+                </a>
+                
+            </div>
+            <!-- HEADER -->
+            <div id="form_header">
+                <h1>Login</h1>
+            </div>
+            
+
+            <!-- INPUTS -->
+            <form action="/login" method="post" mode="cors">
+                <div id="inputs">
+                    <!-- EMAIL -->
+                    <div class="input-box">
+                        <label for="email">
+                            E-mail
+                            <div class="input-field">
+                                <i class="fa-solid fa-envelope"></i>
+                                <input type="text" id="email" name="email">
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <!-- PASSWORD -->
+                    <div class="input-box">
+                        <label for="password">
+                            Password
+                            <div class="input-field">
+                                <i class="fa-solid fa-key"></i>
+                                <input type="password" id="password" name="password">
+                            </div>
+                        </label>
+                        
+                        
+                    </div>
+                </div>
+    
+                <!-- LOGIN BUTTON -->
+                <button type="submit" id="login_button">
+                    Login
+                </button>
+            </form>
+            <!-- FORGOT PASSWORD -->
+            <div class="Signup">
+                <p>Don't have an account?  <a href="/register">Sign Up</a></p>
+                
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

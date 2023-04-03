@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/register.css">
+
+</head>
+
+<body>
+    <main id="container">
+        <form id="regis_form" action="/register" method="post">
+            <!-- LOGO -->
+            <div id="fluffy_paw">
+                <a href="#">
+                    <img src="assets/imgs/fluffypaw.png" alt="">
+                </a>
+
+            </div>
+            <!-- HEADER -->
+            <div id="regis_header">
+                <h1>Register</h1>
+            </div>
+
+
+            <!-- INPUTS -->
+            <div id="regis-inputs">
+                <!-- NAME -->
+                <div class="regis input-box">
+                    <p class="regis-name">
+                        FirstName
+                    <div class="regis input-field">
+
+                        <input type="text" placeholder="Enter Firstname" id="regis-field" name="fname" required>
+                    </div>
+                    </p>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="regis input-box">
+                    <p class="regis-lastname">
+                        Lastname
+                    <div class="regis input-field ">
+
+                        <input type="lastname" placeholder="Enter Email" id="regis-field" name="lname" required>
+                    </div>
+                    </p>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="regis input-box">
+                    <p class="regis-email">
+                        Email
+                    <div class="regis input-field ">
+
+                        <input type="email" placeholder="Enter Email" id="regis-field" name="email" required>
+                    </div>
+                    </p>
+
+                    <div class="regis input-box">
+                        <p class="regis-password">
+                            Password
+                        <div class="regis input-field ">
+                            <input type="password" id="regis-field" placeholder="Enter Password" name="psw" required>
+                        </div>
+                        </p>
+
+                        <div class="regis input-box">
+                            <p class="regis-password">
+                                Confirm password
+                            <div class="regis input-field ">
+                                <input type="password" id="regis-field" placeholder="Confirm Password" name="rpsw"
+                                    required>
+                            </div>
+                            </p>
+
+                            <div class="from-center">
+                                <p class="red"><%=errtext%></p>
+                                <button type="submit" id="regis_button">
+                                    Register
+                                </button>
+                            </div>
+        </form>
+        <p class="signin">Already have an account <a href="/login">Sign in?<a></p>
+    </main>
+    
+        
+</body>
+
+</html>
