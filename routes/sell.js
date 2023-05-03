@@ -57,7 +57,9 @@ router.post('/', upload.single('img'), async (req, res) => {
                 const result = await uploadFile(file.buffer, findid[0].idDog + "_" + findid[0].SellerID, file.mimetype)
 
                 
-                res.render('upload', { successtext: success });
+                connection.query('SELECT * FROM CartList WHERE UserID = ?', [req.session.userid], async function (error, cartlist, fields) {
+                    res.render('upload', { successtext: success , Fullname:req.session.user,CartNum:cartlist.length});
+                  });
               });
 
 
