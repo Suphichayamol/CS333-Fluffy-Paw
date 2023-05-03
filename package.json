@@ -6,6 +6,7 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.325.0",
     "aws-sdk": "^2.1369.0",
     "body-parser": "^1.20.2",
     "cookie-parser": "~1.4.4",
@@ -21,5 +22,4 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.22"
   }
-
 }

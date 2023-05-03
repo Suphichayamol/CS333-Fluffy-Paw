@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const sharp = require('sharp');
 var connection = require('../database.js');
 
 
