@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/affbc97ebf.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/affbc97ebf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/homePage.css">
+    <link rel="stylesheet" href="css/upload.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>FluffyPaw</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-5 icont" href="#"><i class="fa-solid fa-paw"></i>Fluffy<span
+                    class="paw">Paw</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto me-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shop">SHOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sell">SELL YOUR DOG!</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">CONTACT</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav  me-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page">
+                            <%= Fullname.Firstname%>
+                                <%= Fullname.Lastname%>
+                        </a>
+                    </li>
+                </ul>
+                <div class="dropdown">
+                    <i class="fa-solid fa-user dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false"></i>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                        <li><a class="dropdown-item" href="#">Billing Method</a></li>
+                        <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                    </ul>
+                    <a href="/cart"><i class="fa-solid fa-cart-shopping relativecart">
+                            <p class="absolutenum"><%=CartNum %></p>
+                        </i></a>
+                </div>
+                <form class="d-flex me-5" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <a class="sIcon" href="#"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+
+                </form>
+            </div>
+        </div>
+    </nav>
+    <form action="/sell" enctype="multipart/form-data" method="post">
+        <div class="box-color">
+
+            <div class="d-grid justify-content-center cl-box">
+                <div class="row g-3 align-items-center name-up">
+                    <div class="col-auto">
+                        <label class="col-form-label dog_name">หัวข้อโพสต์<span class="star">*</span></label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" class="form-control name_dog_input" id="disabledTextInput"
+                            placeholder="เช่น น้องไข่ตุ๋น เพศหญิง" name="topic" required>
+                    </div>
+                </div>
+                <!-- <div class="row g-3 align-items-center breed-up">
+                    <div class="col-auto">
+                        <label class="col-form-label dog_breed">สายพันธุ์<span class="star">*</span></label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" class="form-control name_dog_input" id="disabledTextInput"
+                            placeholder="เช่น ปอมเมอร์เรเนี่ยน">
+                    </div>
+                </div> -->
+
+                <div class="row g-3 breed-up">
+                    <div class="col-auto">
+                        <label class="col-form-label dog_detail">รายละเอียด</label>
+                    </div>
+                    <div class="col-auto">
+                        <textarea class="form-control detail_dog_input" type="text" name="detail"></textarea>
+                    </div>
+                </div>
+                <label for="img" class="col-form-label dog_detail">เลือกรูปภาพ</label>
+                <input class="form-control dog_detail" type="file" id="img" name="img" accept="image/*" required>
+                <div class="row g-3 breed-up">
+                    <div class="col-auto">
+                        <label class="col-form-label dog_price">ราคา<span class="star">*</span></label>
+                    </div>
+                    <div class="col-auto">
+                        <div class="col-auto">
+                            <input type="text" class="form-control price_dog_input" id="disabledTextInput" name="price" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 breed-up">
+                    <div class="col-auto">
+                        <label class="col-form-label dog_provide">จังหวัด<span class="star">*</span></label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" class="form-control name_dog_input" id="disabledTextInput"
+                            placeholder="เช่น ปทุมธานี" name="province" required>
+                    </div>
+                </div>
+                <div class="row g-3 breed-up">
+                    <div class="col-auto">
+                        <label class="col-form-label dog_price">เมือง<span class="star">*</span></label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" class="form-control name_dog_input" id="disabledTextInput"
+                            placeholder="เช่น เมืองปทุมธานี" name="city" required>
+                    </div>
+                </div>
+                <div class="row g-3 d-grid justify-content-center">
+                    <p class="alert"><%=successtext%></p>
+                </div>
+                <div class="row g-3 d-grid justify-content-center">
+                    <button type="submit" class="btn btn-warning btn-sell-up">ลงขายสุนัข</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+    </div>
+    </div>
+</body>
+
+</html>

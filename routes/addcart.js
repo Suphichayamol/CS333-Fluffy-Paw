@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
             ) LIMIT 1;
             `
             , [results[0].idUser,dogid,dogid], async function (error, cartlist, fields) { 
-              res.redirect('/');  
+              res.redirect('back') 
             });
           });
         }

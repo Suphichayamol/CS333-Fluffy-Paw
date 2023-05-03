@@ -40,6 +40,7 @@ router.post('/', function(req, res, next) {
           // Authenticate the user
           req.session.loggedin = true;
           req.session.username = username;
+          req.session.userid = results[0].idUser
           // Redirect to home page
           //res.render('homePage',{Fullname:results[0]});
           res.redirect('/');

@@ -18,6 +18,8 @@ var createError = require('http-errors');
  var cartRouter = require('./routes/cart');
  var rmcartRouter = require('./routes/rmcart');
  var addcartRouter = require('./routes/addcart');
+ var sellRouter = require('./routes/sell');
+ var shopRouter = require('./routes/shop');
  var app = express();
  
 // view engine setup
@@ -47,6 +49,8 @@ var createError = require('http-errors');
  app.use('/cart',cartRouter);
  app.use('/rmcart',rmcartRouter);
  app.use('/addcart',addcartRouter);
+ app.use('/sell',sellRouter)
+ app.use('/shop',shopRouter)
  // catch 404 and forward to error handler
  app.use(function(req, res, next) {
    next(createError(404));

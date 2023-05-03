@@ -182,6 +182,8 @@ a:link{
     font-size: 26px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+
 .Mycart{
     text-align: center;
     justify-content: center;
@@ -189,10 +191,33 @@ a:link{
     margin-top: 3em;
     font-weight: bold;
     padding: 1rem;
-    background-color: rgb(255, 187, 0);
-    
+    display: flex;
 }
 
 .Mycart h1{
-    color: rgba(255, 255, 255, 0.853);
+    font-size: 28px;
+    font-weight: bold;
 }
+
+.incart-posi{
+    width: 80%;
+}
+
+.headcol{
+    font-size: 20px;
+}
+.img-dog1{
+    width: 300px;
+    height: 250px;
+}
+
+.checkout{
+    position: absolute;
+    right: 10rem;
+}
+
+.delcart{
+    color: #ff4444;
+    font-size: 20px;
+}
+

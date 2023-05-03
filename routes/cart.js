@@ -12,15 +12,15 @@ router.get('/', async function (req, res, next) {
       return new Promise((resolve) => {
       
       connection.query('SELECT * FROM User WHERE Email = ? ', [req.session.username], function (error, results, fields) {
-        console.log(results);
+        
         connection.query('SELECT * FROM CartList WHERE UserID = ?', [results[0].idUser], async function (error, cartlist, fields) {
-          console.log(cartlist);
+          console.log(cartlist)
           const cdlist = [];
           for (let i = 0; i < cartlist.length; i++) {
             function looprun(cart){
             return new Promise((resolve) => {
               connection.query('SELECT * FROM SellDogList WHERE idDog = ?', [cart], function (error, doglist, fields) {
-                // console.log(doglist[0])
+                 console.log(doglist[0])
                 resolve(doglist[0]);
 
               });
@@ -39,7 +39,7 @@ router.get('/', async function (req, res, next) {
     async function renderdata() {
       const results = await condata()
       console.log(results);
-      res.render('cart', { cdlist: results.cdlist, Fullname : results.fullname, CartNum :results.cartnum });
+      res.render('cart1', { cdlist: results.cdlist, Fullname : results.fullname, CartNum :results.cartnum });
     }
     
 

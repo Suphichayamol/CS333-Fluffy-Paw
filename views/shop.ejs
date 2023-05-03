@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="https://kit.fontawesome.com/affbc97ebf.css" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/affbc97ebf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/homePage.css">
+    <link rel="stylesheet" href="css/shop.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>FluffyPaw</title>
 </head>
 
@@ -85,71 +87,49 @@
                             </form>
             </div>
     </nav>
-    <img class="bannerimg" src="./image/banner.jpg">
-    <div class="absolutetext">
-        <p class="welcome">Welcome to FluffyPaw</p>
-        <p class="welcomedis">Let's discover your friends here!</p>
-        <button type="button" class="btn btn-warning">SHOP NOW <i class="fa-solid fa-arrow-right-long"></i></button>
-    </div>
-
-    <div class="flexservice">
-        <div class="gridbox">
-            <i class="fa-solid fa-truck-fast"></i>
-            <p>Free shipping</p>
-            <p class="servicedis">Free shipping in all order</p>
-        </div>
-        <div class="gridbox1">
-            <i class="fa-solid fa-shield-dog"></i>
-            <p>Guaruntee what you want</p>
-            <p class="servicedis">Don't worry, the cat doesn't match the cover</p>
-        </div>
-        <div class="gridbox1">
-            <i class="fa-regular fa-circle-check"></i>
-            <p>Identity Verification</p>
-            <p class="servicedis">All sellers are verified.</p>
-        </div>
-    </div>
-
-    <div class="flexmenu">
-        <a href="#">
-            <p class="menu">Popular breed</p>
-        </a>
-        <a href="#">
-            <p class="menu1">Puppy</p>
-        </a>
-        <a href="#">
-            <p class="menu1">Recommend</p>
-        </a>
-    </div>
-    
-        <% for(let i=0; i < 1; i ++){%>
-            <div class="flexcard">
-                <% for(let j=i; j < Doglist.length && j < i + 3; j ++) { %>
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fluffy-bucket-333.s3.amazonaws.com/<%=Doglist[j].idDog %>_<%=Doglist[j].SellerID %>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <%=Doglist[j].Topic %>
-                            </h5>
-                            <p class="card-text">
-                                <%=Doglist[j].City %> , <%=Doglist[j].Province %>
-                            </p>
-                            <p class="price">
-                                <%=Doglist[j].Price %> ฿
-                            </p>
-                            <a href="/addcart?dogid=<%=Doglist[j].idDog%>" class="btn btn-danger">Add to cart</a>
-                        </div>
-                    </div>
-                <% }%>
+    <div class="container-fluid d-flex">
+        <div class="option">
+            <div class="sidebar">
+                <p class="border-bottom">ตัวเลือกสสุนัข</p>
+                <a href="#" class="sidebar-items border-bottom">
+                    สายพันธ์ุ
+                </a>
+                <a href="#" class="sidebar-items border-bottom">
+                    ราคา
+                </a>
+                <a href="#" class="sidebar-items border-bottom">
+                    จังหวัด
+                </a>
+                <a href="#" class="sidebar-items border-bottom">
+                    อายุ
+                </a>
             </div>
-        <% }%>
-    
+        </div>
+        <div class="marginlist">
+            <% for(let i=0; i < Doglist.length; i +=3){%>
+                <div class="flexcard">
+                    <% for(let j=i; j < Doglist.length && j < i + 3; j ++) { %>
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://fluffy-bucket-333.s3.amazonaws.com/<%=Doglist[j].idDog %>_<%=Doglist[j].SellerID %>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%=Doglist[j].Topic %>
+                                </h5>
+                                <p class="card-text">
+                                    <%=Doglist[j].City %> , <%=Doglist[j].Province %>
+                                </p>
+                                <p class="price">
+                                    <%=Doglist[j].Price %> ฿
+                                </p>
+                                <a href="/addcart?dogid=<%=Doglist[j].idDog%>" class="btn btn-danger">Add to cart</a>
+                            </div>
+                        </div>
+                    <% }%>
+                </div>
+            <% }%>
+        </div>
+    </div>
 
-
-
-
-
+    </div>
 
 </body>
-
-</html>

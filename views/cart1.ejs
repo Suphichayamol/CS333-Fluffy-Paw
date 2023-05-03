@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/affbc97ebf.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/affbc97ebf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/homePage.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>FluffyPaw</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-5 icont" href="#"><i class="fa-solid fa-paw"></i>Fluffy<span
+                    class="paw">Paw</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto me-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shop">SHOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sell">SELL YOUR DOG!</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">CONTACT</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav  me-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page">
+                            <%= Fullname.Firstname%>
+                                <%= Fullname.Lastname%>
+                        </a>
+                    </li>
+                </ul>
+                <div class="dropdown">
+                    <i class="fa-solid fa-user dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false"></i>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                        <li><a class="dropdown-item" href="#">Billing Method</a></li>
+                        <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                    </ul>
+                    <a href="#"><i class="fa-solid fa-cart-shopping relativecart">
+                            <p class="absolutenum"><%=CartNum %></p>
+                        </i></a>
+                </div>
+                <form class="d-flex me-5" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <a class="sIcon" href="#"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="Mycart"><i class="fa fa-shopping-cart" style="font-size:40px"></i>
+            <h1> &nbsp;&nbsp;My Cart</h1>
+        </div>
+    </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="incart-posi">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col" class="headcol">Name</th>
+                    <th scope="col" class="headcol">Detail</th>
+                    <th scope="col" class="headcol">Price</th>
+                    <th scope="col" class="headcol"></th>
+                </tr>
+            </thead>
+            <% for(let i = 0; i < cdlist.length; i ++){%>
+            <tbody>
+                <tr>
+                    <td> <img src="https://fluffy-bucket-333.s3.amazonaws.com/<%=cdlist[i].idDog %>_<%=cdlist[i].SellerID %>" class="img-dog1" alt="..."></td>
+                    <td>
+                        <h4 class="cart-title"><%=cdlist[i].Topic %></h4>
+                    </td>
+                    <td>
+                        <h4 class="cart-text"><%=cdlist[i].City %>, <%=cdlist[i].Province %></h4>
+                    </td>
+                    <td>
+                        <h4 class="cart-price"><%=cdlist[i].Price %>฿</h4>
+                    </td>
+                    <td>
+                        <a href="/rmcart?dogid=<%=cdlist[i].idDog%>" class="delcart"><i class="fa-solid fa-trash"></i></a>
+                    </td>    
+                </tr>
+            </tbody>
+            <% }%>
+        </table>
+        </div>
+    </div>
+
+    <div class="position-relative"><button type="button" class="btn btn-warning checkout">Check out</button></div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
