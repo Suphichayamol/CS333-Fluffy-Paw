@@ -40,11 +40,13 @@ router.post('/', upload.single('img'), async (req, res) => {
         let city = req.body.city
         let price = req.body.price
         let detail = req.body.detail
-
-        connection.query(`INSERT INTO SellDogList(Topic,Province,City,Price,Detail,SellerID)
-            VALUES (?,?,?,?,?,?);
+        let breed = req.body.breed
+        let phone = req.body.phone
+        let status = "active"
+        connection.query(`INSERT INTO SellDogList(Topic,Province,City,Price,Detail,SellerID,Breed,Phonenum,VisitCount,Status)
+            VALUES (?,?,?,?,?,?,?,?,?,?);
             `
-            , [topic, province, city, price, detail, req.session.userid],  function (error, addsell, fields) {
+            , [topic, province, city, price, detail, req.session.userid,breed,phone,0,status],  function (error, addsell, fields) {
                 
             });
 
@@ -61,29 +63,10 @@ router.post('/', upload.single('img'), async (req, res) => {
                     res.render('upload', { successtext: success , Fullname:req.session.user,CartNum:cartlist.length});
                   });
               });
-
-
-
-
-
-
-        
-        //img
-        // const file = req.file
-        // console.log(file)
-        // console.log("111")
-        // const fileBuffer = await sharp(file.buffer)
-        //     .resize({ height: 1920, width: 1080, fit: "contain" })
-        //     .toBuffer()
-        // console.log("222")
-        // const result = await uploadFile(fileBuffer, "iii2", file.mimetype)
-
-        // console.log(result)
-        // res.render('s3test')
     }
 
     else {
-        connection.query('SELECT * FROM SellDogList ', function (error, doglist, fields) {
+        connection.query('SELECT * FROM SellDogList WHERE Status = "active" ', function (error, doglist, fields) {
             console.log(doglist);
             res.render('index', {
                 Session: null,

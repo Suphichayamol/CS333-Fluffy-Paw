@@ -43,4 +43,29 @@
     margin-left: 80px;
 }
 
+.fill{
+    color: black;
+    padding: 1rem;
+
+}
+
+.breedselect,.priceselect, .providesl{
+    border: none;
+}
+
+.topicd{
+    color: black;
+    
+    background-color: white;
+}
+
+.topicd:hover{
+    color: rgb(255, 187, 0); 
+    background-color: white;
+}
+
+
+
+
+
 

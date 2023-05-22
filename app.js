@@ -7,7 +7,7 @@ var createError = require('http-errors');
  var flash = require('express-flash');
  var session = require('express-session');
  var bodyParser = require('body-parser');
- 
+
  var mysql = require('mysql');
  var connection  = require('./database');
  
@@ -20,6 +20,11 @@ var createError = require('http-errors');
  var addcartRouter = require('./routes/addcart');
  var sellRouter = require('./routes/sell');
  var shopRouter = require('./routes/shop');
+ var scanRouter = require('./routes/scan');
+ var shopfilterRouter = require('./routes/shopfilter');
+ var mydogRouter = require('./routes/mydog');
+ var detailRouter = require('./routes/detail');
+ var checkoutRouter = require('./routes/checkout');
  var app = express();
  
 // view engine setup
@@ -51,6 +56,12 @@ var createError = require('http-errors');
  app.use('/addcart',addcartRouter);
  app.use('/sell',sellRouter)
  app.use('/shop',shopRouter)
+ app.use('/scan',scanRouter)
+ app.use('/shopfilter',shopfilterRouter)
+ app.use('/mydog',mydogRouter)
+ app.use('/detail',detailRouter)
+ app.use('/checkout',checkoutRouter)
+ 
  // catch 404 and forward to error handler
  app.use(function(req, res, next) {
    next(createError(404));

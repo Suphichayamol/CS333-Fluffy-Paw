@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300&display=swap');
+
+.dt{
+    margin-top: 3rem;
+    margin-left: 12rem;
+    align-items: flex-start;
+
+
+   
+    
+}
+
+.exphoto{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 550px;
+}
+
+.part{
+    font-family: 'Noto Sans Thai';
+
+    margin-left: 10rem;
+}
+
+#ch-from{
+    font-size: 25px;
+}
+#ch-dog{
+    font-size: 35px;
+    font-weight: bold;
+}
+#ch-price{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.ip-ch-detail{
+    font-size: 25px;
+    width:50rem;
+    padding: 0.5rem;
+    
+}
+
+#ch-detail{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.ph-de{
+    width:16rem;
+    margin-top: 20px;
+}
+
+.text-spiecs{
+    margin-top: 30px;
+}
+
+#spiecs{
+    font-size: 25px;
+    color: rgb(244, 160, 35);
+    
+}
+
+.sp-line{
+    width:30rem;
+    padding: 0.5rem;
+}
+
+.warn-text{
+    margin-top: 5rem;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.warn-i-color{
+    color: rgb(251, 148, 79);
+}
+
+.predict{
+    margin-top: -5rem;
+    margin-left: 12rem;
+}
+
+.spc-text{
+    font-family: 'Noto Sans Thai';
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.text-model{
+    font-family: 'Noto Sans Thai';
+    font-size: 18px;
+    color: rgb(228, 22, 22);
+}

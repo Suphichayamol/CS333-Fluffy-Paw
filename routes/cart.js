@@ -13,13 +13,13 @@ router.get('/', async function (req, res, next) {
       
       connection.query('SELECT * FROM User WHERE Email = ? ', [req.session.username], function (error, results, fields) {
         
-        connection.query('SELECT * FROM CartList WHERE UserID = ?', [results[0].idUser], async function (error, cartlist, fields) {
+        connection.query('SELECT * FROM CartList WHERE UserID = ? ', [results[0].idUser], async function (error, cartlist, fields) {
           console.log(cartlist)
           const cdlist = [];
           for (let i = 0; i < cartlist.length; i++) {
             function looprun(cart){
             return new Promise((resolve) => {
-              connection.query('SELECT * FROM SellDogList WHERE idDog = ?', [cart], function (error, doglist, fields) {
+              connection.query('SELECT * FROM SellDogList WHERE idDog = ? AND Status = "active"', [cart], function (error, doglist, fields) {
                  console.log(doglist[0])
                 resolve(doglist[0]);
 
@@ -47,7 +47,7 @@ router.get('/', async function (req, res, next) {
     renderdata();
   }
   else {
-    connection.query('SELECT * FROM SellDogList ', function (error, doglist, fields) {
+    connection.query('SELECT * FROM SellDogList WHERE Status = "active"', function (error, doglist, fields) {
       console.log(doglist);
       res.render('index', {
         Session: null,

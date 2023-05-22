@@ -7,19 +7,19 @@ var connection = require('../database.js');
 router.get('/', function (req, res, next) {
   if (req.session.username) {
     connection.query('SELECT * FROM User WHERE Email = ? ', [req.session.username], function (error, results, fields) {
-      console.log(results);
-      connection.query('SELECT * FROM SellDogList ', function (error, doglist, fields) {
-        console.log(doglist);
+      
+      connection.query('SELECT * FROM SellDogList WHERE Status = "active" ORDER BY VisitCount DESC', function (error, doglist, fields) {
+        
         connection.query('SELECT * FROM CartList WHERE UserID = ?', [results[0].idUser], async function (error, cartlist, fields) {
-          console.log(cartlist.length);
+          
           res.render('index', { Fullname: results[0], Session: req.session, Doglist: doglist, CartNum:cartlist.length });
         });
       });
     });
   }
   else {
-    connection.query('SELECT * FROM SellDogList ', function (error, doglist, fields) {
-      console.log(doglist);
+    connection.query('SELECT * FROM SellDogList WHERE Status = "active" ORDER BY VisitCount DESC', function (error, doglist, fields) {
+      
       res.render('index', {
         Session: null,
         Doglist: doglist
@@ -28,6 +28,7 @@ router.get('/', function (req, res, next) {
   }
 
 });
+
 
 
 module.exports = router;

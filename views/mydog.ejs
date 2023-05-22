@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="https://kit.fontawesome.com/affbc97ebf.css" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/affbc97ebf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/homePage.css">
+    <link rel="stylesheet" href="css/cart.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <title>FluffyPaw</title>
 </head>
 
@@ -54,24 +56,25 @@
                 <div class="dropdown">
                     <i class="fa-solid fa-user dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false"></i>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-                        <li><a class="dropdown-item" href="/mydog">My dog</a></li>
+                        <li><a class="dropdown-item" href="#">My Dog</a></li>
                         <li><a class="dropdown-item" href="/logout">Log out</a></li>
                     </ul>
-                    <a href="#"><i class="fa-solid fa-cart-shopping relativecart">
+                    <a href="/cart"><i class="fa-solid fa-cart-shopping relativecart">
                             <p class="absolutenum"><%=CartNum %></p>
                         </i></a>
                 </div>
-                <form class="d-flex me-5" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <a class="sIcon" href="#"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
-
+                <form class="d-flex me-5" role="search" action="/shop" method="post">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        id="search" name="search">
+                    <button class="search" type="submit"><i
+                            class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
         </div>
     </nav>
     <div class="container">
-        <div class="Mycart"><i class="fa fa-shopping-cart" style="font-size:40px"></i>
-            <h1> &nbsp;&nbsp;My Cart</h1>
+        <div class="Mycart"><i class='fas fa-dog' style='font-size:36px'></i></i>
+            <h1> &nbsp;&nbsp;My dog status</h1>
         </div>
     </div>
     </div>
@@ -81,9 +84,10 @@
             <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col" class="headcol">Name</th>
-                    <th scope="col" class="headcol">Detail</th>
-                    <th scope="col" class="headcol">Price</th>
+                    <th scope="col" class="headcol">ชื่อ</th>
+                    <th scope="col" class="headcol">รายละเอียด</th>
+                    <th scope="col" class="headcol">ราคา</th>
+                    <th scope="col" class="headcol">สถานะ</th>
                     <th scope="col" class="headcol"></th>
                 </tr>
             </thead>
@@ -99,13 +103,11 @@
                     </td>
                     <td>
                         <h4 class="cart-price"><%=cdlist[i].Price %>฿</h4>
-                        <form action="/checkout" method="post">
-                            <input type="text" name="idDog" value="<%=cdlist[i].idDog %>" hidden>
-                        <div class=""><button type="submit" class="btn btn-warning checkout">Check out</button></div>
-                        </form>
                     </td>
                     <td>
-                        <a href="/rmcart?dogid=<%=cdlist[i].idDog%>" class="delcart"><i class="fa-solid fa-trash"></i></a>
+                        <% if(cdlist[i].Status == "active"){ %>
+                        <h4 class="cart-status activestat"><%=cdlist[i].Status %></h4>
+                        <%} else{ %><h4 class="cart-status soldstat"><%=cdlist[i].Status %></h4><% } %>    
                     </td>    
                 </tr>
             </tbody>
@@ -113,7 +115,9 @@
         </table>
         </div>
     </div>
-        
+
+
+
 
 
 

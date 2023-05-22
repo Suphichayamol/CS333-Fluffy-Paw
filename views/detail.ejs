@@ -13,9 +13,10 @@
     <link rel="stylesheet" href="https://kit.fontawesome.com/affbc97ebf.css" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/affbc97ebf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/homePage.css">
+    <link rel="stylesheet" href="css/detail.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>FluffyPaw</title>
@@ -24,7 +25,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand ms-5 icont" href="/"><i class="fa-solid fa-paw"></i>Fluffy<span
+            <a class="navbar-brand ms-5 icont" href="#"><i class="fa-solid fa-paw"></i>Fluffy<span
                     class="paw">Paw</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -43,6 +44,7 @@
                         <a class="nav-link" href="/sell">SELL YOUR DOG!</a>
                     </li>
                 </ul>
+                <% if(Session){%>
                 <ul class="navbar-nav  me-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page">
@@ -54,13 +56,24 @@
                 <div class="dropdown">
                     <i class="fa-solid fa-user dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false"></i>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-                        <li><a class="dropdown-item" href="/mydog">My dog</a></li>
+                        <li><a class="dropdown-item" href="/mydog">My Dog</a></li>
                         <li><a class="dropdown-item" href="/logout">Log out</a></li>
                     </ul>
-                    <a href="#"><i class="fa-solid fa-cart-shopping relativecart">
-                            <p class="absolutenum"><%=CartNum %></p>
+                    <a href="/cart"><i class="fa-solid fa-cart-shopping relativecart">
+                            <p class="absolutenum">
+                                <%=CartNum %>
+                            </p>
                         </i></a>
                 </div>
+                <% }else {%>
+                    <ul class="navbar-nav  me-2 mb-lg-0">
+                        <li class="nav-item">
+                            <form action="/login" method="get">
+                                <input type="submit" class="btn btn-secondary" value="Sign In">
+                            </form>
+                        </li>
+                    </ul>
+                <% } %>
                 <form class="d-flex me-5" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <a class="sIcon" href="#"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
@@ -69,59 +82,38 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="Mycart"><i class="fa fa-shopping-cart" style="font-size:40px"></i>
-            <h1> &nbsp;&nbsp;My Cart</h1>
+
+    <form action="/sell" enctype="multipart/form-data" method="post">
+        <div class="container-fluid dt d-flex">
+            <img class="exphoto" src="https://fluffy-bucket-333.s3.amazonaws.com/<%=Doglist[0].idDog %>_<%=Doglist[0].SellerID %>" alt="exphoto">
+            <div class="part">
+                <p id="ch-dog"><%=Doglist[0].Topic %></p>
+                <p id="ch-price">฿ <%=Doglist[0].Price %></p>
+                <button class="ph-de btn btn-warning"><i class="fa fa-phone"
+                        style="font-size:24px"></i>&nbsp&nbspโทร&nbsp<%=Doglist[0].Phonenum %></button>
+                <div class="text-spiecs">
+                    <p id="ch-detail">สายพันธุ์</p>
+                    <p class="border-bottom sp-line" id="spiecs"><%=Doglist[0].Breed %></p>
+
+                    <p id="ch-detail">รายละเอียดสินค้า</p>
+                    <p class="border-bottom  ip-ch-detail"><%=Doglist[0].Detail %></p>
+                </div>
+                <a href="/addcart?dogid=<%=Doglist[0].idDog%>" class="btn btn-danger">Add to cart</a>
+                <div>
+                    <p class="warn-text"><i class='warn-i-color fas fa-exclamation-triangle' style='font-size:36px'></i>
+                        กรุณาอย่าโอนเงินให้ผู้ขายด้วยตนเองไม่ว่ากรณีใดๆ
+                        หากต้องการโอนเงินกรุณากดซื้อผ่านหน้าเว็บไซต์</p>
+                </div>
+            </div>
+           
+ 
         </div>
-    </div>
-    </div>
-    <div class="d-flex justify-content-center">
-        <div class="incart-posi">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col" class="headcol">Name</th>
-                    <th scope="col" class="headcol">Detail</th>
-                    <th scope="col" class="headcol">Price</th>
-                    <th scope="col" class="headcol"></th>
-                </tr>
-            </thead>
-            <% for(let i = 0; i < cdlist.length; i ++){%>
-            <tbody>
-                <tr>
-                    <td> <img src="https://fluffy-bucket-333.s3.amazonaws.com/<%=cdlist[i].idDog %>_<%=cdlist[i].SellerID %>" class="img-dog1" alt="..."></td>
-                    <td>
-                        <h4 class="cart-title"><%=cdlist[i].Topic %></h4>
-                    </td>
-                    <td>
-                        <h4 class="cart-text"><%=cdlist[i].City %>, <%=cdlist[i].Province %></h4>
-                    </td>
-                    <td>
-                        <h4 class="cart-price"><%=cdlist[i].Price %>฿</h4>
-                        <form action="/checkout" method="post">
-                            <input type="text" name="idDog" value="<%=cdlist[i].idDog %>" hidden>
-                        <div class=""><button type="submit" class="btn btn-warning checkout">Check out</button></div>
-                        </form>
-                    </td>
-                    <td>
-                        <a href="/rmcart?dogid=<%=cdlist[i].idDog%>" class="delcart"><i class="fa-solid fa-trash"></i></a>
-                    </td>    
-                </tr>
-            </tbody>
-            <% }%>
-        </table>
+        <div class="container-fluid predict">
+            <div class=><p class="spc-text"><i class='fas fa-dog' style='font-size:24px; color:rgb(255, 136, 0)'></i> สุนัขตัวนี้มีความน่าจะเป็นว่าเป็นสายพันธุ์: <%=Breed %>  </p></div>
+            <div><p class="text-model"><i class="fa-solid fa-robot" style="font-size:24px; color: rgb(255, 136, 0)"></i> เป็นเพียงการคาดการณ์จากโมเดล ที่มีความแม่นยำ 80%</p></div>
         </div>
-    </div>
         
-
-
-
-
-
-
-
-
+    </form>
 </body>
 
 </html>

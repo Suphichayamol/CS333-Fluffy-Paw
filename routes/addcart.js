@@ -11,10 +11,10 @@ router.get('/', function (req, res, next) {
             connection.query(`INSERT INTO CartList(UserID,DogID)
             SELECT * FROM (SELECT ? AS UserID, ? AS DogID) AS new_value
             WHERE NOT EXISTS (
-                SELECT DogID FROM CartList WHERE DogID = ?
+                SELECT DogID FROM CartList WHERE DogID = ? AND UserID = ?
             ) LIMIT 1;
             `
-            , [results[0].idUser,dogid,dogid], async function (error, cartlist, fields) { 
+            , [results[0].idUser,dogid,dogid,results[0].idUser], async function (error, cartlist, fields) { 
               res.redirect('back') 
             });
           });

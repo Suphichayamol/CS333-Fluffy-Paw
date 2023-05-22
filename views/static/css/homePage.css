@@ -173,8 +173,10 @@ a:link{
 }
 
 .card a:hover{
-    background-color: rgb(163, 163, 163);
-    border-color: rgb(163, 163, 163);
+    --bs-btn-bg:rgb(252, 166, 68);
+    --bs-btn-border-color: none;
+    --bs-btn-hover-bg: rgb(245, 188, 123);
+    --bs-btn-hover-border-color: none;
 }
 
 .price{
@@ -221,3 +223,29 @@ a:link{
     font-size: 20px;
 }
 
+.search{
+    border: none;
+    background: none;
+}
+
+.eye{
+    margin-top: 5px;
+    margin-left: 4rem;
+    font-size: 25px;
+    color: rgb(182, 182, 182);
+}
+
+.eye-count{
+    margin-top: 3px;
+    margin-left: 1rem;
+    font-size: 18px;
+    color: rgb(182, 182, 182);
+}
+
+.activestat{
+    color: green;
+}
+
+.soldstat{
+    color: rgb(255, 153, 0);
+}
